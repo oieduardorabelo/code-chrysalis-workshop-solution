@@ -4,8 +4,12 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
-import API from '@aws-amplify/auth';
+import PubSub from '@aws-amplify/pubsub';
+import Auth from '@aws-amplify/auth';
+import API from '@aws-amplify/api';
 import amplify from './aws-exports';
+PubSub.configure(amplify);
+Auth.configure(amplify);
 API.configure(amplify);
 
 if (environment.production) {

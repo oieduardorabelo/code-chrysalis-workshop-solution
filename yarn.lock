@@ -243,6 +243,15 @@
     aws-sdk "2.474.0"
     url "^0.11.0"
 
+"@aws-amplify/pubsub@^1.0.29":
+  version "1.0.29"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/pubsub/-/pubsub-1.0.29.tgz#c599054cbd25343a779c337e7576ef1bb9d53e27"
+  integrity sha512-3TpAt9yntA3EoXeU9GfYhqbKn6lFW8sg9XAQqHJWkJuzXL+RCWp3zbVG3fSxwQviNJpeZHN53by4qOpFOv0ZKw==
+  dependencies:
+    "@aws-amplify/core" "^1.0.28"
+    uuid "^3.2.1"
+    zen-observable "^0.8.6"
+
 "@aws-amplify/ui@^1.0.20":
   version "1.0.20"
   resolved "https://registry.yarnpkg.com/@aws-amplify/ui/-/ui-1.0.20.tgz#c10b9a2ef82026db7c03e928136682f5936858d7"
