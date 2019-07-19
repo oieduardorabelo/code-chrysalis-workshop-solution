@@ -50,8 +50,14 @@ export class HomeComponent implements OnInit {
       const newRestaurant = event.value.data.onCreateRestaurant;
       this.restaurants = [newRestaurant, ...this.restaurants];
     });
+
+    this.api.OnDeleteRestaurantListener.subscribe(event => {
+      const deletedRestaurant = event.value.data.onDeleteRestaurant;
+      const filterDeletedRestaurant = restaurant => restaurant.id !== deletedRestaurant.id;
+      this.restaurants = this.restaurants.filter(filterDeletedRestaurant);
+    })
   }
-  
+
   public onCreate(restaurant: any) {
     this.api.CreateRestaurant(restaurant).then(event => {
       console.log('item created!');
@@ -60,5 +66,16 @@ export class HomeComponent implements OnInit {
     .catch(e => {
       console.log('error creating restaurant...', e);
     });
+  }
+
+  public onDelete(restaurantID: any) {
+    this.api
+      .DeleteRestaurant({ id: restaurantID })
+      .then(event => {
+        console.log("item deleted!");
+      })
+      .catch(e => {
+        console.log("error deleting restaurant...", e);
+      });
   }
 }
